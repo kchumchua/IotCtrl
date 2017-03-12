@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         mGear1 = new GearHelper(this,"fff");
         Debug.out("Test Debug %x",55);
+        getApplication().registerActivityLifecycleCallbacks(mGear1);
 
     }
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mGear1.GearDestroy();
         }
         super.onDestroy();
+        getApplication().unregisterActivityLifecycleCallbacks(mGear1);
     }
 
     @Override

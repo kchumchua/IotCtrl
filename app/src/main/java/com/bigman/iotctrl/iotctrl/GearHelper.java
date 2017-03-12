@@ -1,5 +1,6 @@
 package com.bigman.iotctrl.iotctrl;
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 
 import android.content.Intent;
@@ -15,7 +16,7 @@ import io.netpie.microgear.MicrogearEventListener;
  * Created by BIGMAN on 25/2/2560.
  */
 
-public class GearHelper implements MicrogearEventListener {
+public class GearHelper implements MicrogearEventListener,Application.ActivityLifecycleCallbacks {
     public final static String LOG_GEAR = "[GEAR]";
     private Context mcontex;
     private String mname;
@@ -164,5 +165,38 @@ public class GearHelper implements MicrogearEventListener {
     }
 
 
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityCreated");
+    }
 
+    @Override
+    public void onActivityStarted(Activity activity) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityStarted");
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityResumed");
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityPaused");
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityStopped");
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivitySaveInstanceState");
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+        Debug.out(Debug.LOG_UNDEF+"==>%s","onActivityDestroyed");
+    }
 }
